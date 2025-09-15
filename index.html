@@ -2,12 +2,35 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Test strony Wiki Metin2</title>
+  <title>WikiMt2009</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div style="position: absolute; top: 10px; left: 10px;">
-    <img src="Logo.png" alt="Logo Wiki Metin2" style="height:48px;">
+  <div class="sidebar">
+    <a href="index.html" class="logo">
+      <img src="Logo.png" alt="Logo Mt2009 Wiki" style="height:64px;">
+    </a>
+    <nav>
+      <h2>Nawigacja</h2>
+      <ul>
+        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="recent.html">Ostatnie zmiany</a></li>
+        <li><a href="random.html">Losowa strona</a></li>
+        <li><a href="help.html">Pomoc z MediaWiki</a></li>
+        <li><a href="wikipedia.html">Wikipedia</a></li>
+      </ul>
+    </nav>
   </div>
-  <h1>Strona działa!</h1>
+  <div class="main-content">
+    <header>
+      <input type="text" placeholder="Szukaj..." class="search-bar">
+      <a href="index.html" class="top-link">Strona główna</a>
+      <button class="theme-toggle" title="Tryb jasny/ciemny">🌙</button>
+    </header>
+    <section>
+      <h1>Ostatnie zmiany</h1>
+      <!-- Tutaj treść strony -->
+    </section>
+  </div>
 </body>
 </html>
