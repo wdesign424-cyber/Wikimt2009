@@ -2,46 +2,117 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>WikiMt2009</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moja Wiki</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f8f9fa;
+      display: flex;
+    }
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background: #fff;
+      border-right: 1px solid #ccc;
+      padding: 10px;
+      height: 100vh;
+      overflow-y: auto;
+      position: fixed;
+    }
+    .sidebar img {
+      max-width: 120px;
+      margin: 10px auto;
+      display: block;
+    }
+    .sidebar h2 {
+      font-size: 16px;
+      margin: 15px 0 5px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #ccc;
+    }
+    .menu {
+      list-style: none;
+      padding: 0;
+    }
+    .menu li {
+      margin: 5px 0;
+    }
+    .menu a {
+      text-decoration: none;
+      color: #0645ad;
+      cursor: pointer;
+    }
+    .submenu {
+      list-style: none;
+      padding-left: 15px;
+      display: none;
+    }
+    .submenu li {
+      margin: 3px 0;
+    }
+    /* Treść */
+    .content {
+      margin-left: 260px;
+      padding: 20px;
+      max-width: 900px;
+    }
+    .content h1 {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <button id="sidebarToggle" class="sidebar-btn" title="Menu">&#9776;</button>
-    <a href="index.html" class="logo-link">
-      <img src="Logo.png" alt="Logo Mt2009 Wiki" class="logo-img">
-    </a>
-  </header>
-
-  <nav id="sidebar" class="sidebar">
-    <ul>
-      <li><a href="index.html">Strona główna</a></li>
-      <li><a href="recent.html">Ostatnie zmiany</a></li>
-      <li><a href="wikipedia.html">Wikipedia</a></li>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <img src="Logo.png" alt="Logo">
+    <ul class="menu">
+      <li><a href="#">Strona główna</a></li>
+      <li><a href="#">Ostatnie zmiany</a></li>
+      <li>
+        <a onclick="toggleSubmenu('wikiSubmenu')">Wikipedia ▾</a>
+        <ul id="wikiSubmenu" class="submenu">
+          <li><a href="#">NPC</a>
+            <ul class="submenu">
+              <li><a href="#">Alchemik</a></li>
+              <li><a href="#">Baek-Go</a></li>
+              <li><a href="#">Biolog Chaegirab</a></li>
+              <li><a href="#">Dozorca</a></li>
+              <li><a href="#">Handlarka Różności</a></li>
+              <li><a href="#">Handlarz Bronią</a></li>
+              <li><a href="#">Handlarz Zbrojami</a></li>
+              <li><a href="#">Kapitan</a></li>
+              <li><a href="#">Kowal</a></li>
+              <li><a href="#">Niepokaźny pieszy</a></li>
+              <li><a href="#">Rybak</a></li>
+              <li><a href="#">Soon</a></li>
+              <li><a href="#">Stajenny</a></li>
+              <li><a href="#">Starsza Pani</a></li>
+              <li><a href="#">Uriel</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Mapy</a></li>
+          <li><a href="#">Systemy</a></li>
+          <li><a href="#">Ulepszacze</a></li>
+          <li><a href="#">Misje</a></li>
+        </ul>
+      </li>
     </ul>
-  </nav>
+  </div>
 
-  <div id="overlay" class="overlay"></div>
-
-  <main>
-    <h1>Ostatnie zmiany</h1>
-    <!-- Treść strony tutaj -->
-  </main>
+  <!-- Treść -->
+  <div class="content">
+    <h1>Witaj w mojej Wikipedii!</h1>
+    <p>Tu możesz edytować treść swojej strony. Kliknij w linki po lewej, aby rozwinąć kategorie.</p>
+  </div>
 
   <script>
-    // Sidebar toggle logic
-    const sidebar = document.getElementById('sidebar');
-    const sidebarBtn = document.getElementById('sidebarToggle');
-    const overlay = document.getElementById('overlay');
-
-    sidebarBtn.onclick = function() {
-      sidebar.classList.toggle('active');
-      overlay.classList.toggle('active');
-    };
-    overlay.onclick = function() {
-      sidebar.classList.remove('active');
-      overlay.classList.remove('active');
-    };
+    function toggleSubmenu(id) {
+      var submenu = document.getElementById(id);
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    }
   </script>
 </body>
 </html>
