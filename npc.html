@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wikimt2009 - Lista NPC</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <img src="Logo.png" alt="Logo">
+    <ul class="menu">
+      <li><a href="index.html">Strona główna</a></li>
+      <li><a href="#">Ostatnie zmiany</a></li>
+      <li>
+        <a href="npc.html" onclick="toggleSubmenu('wikiSubmenu'); return false;">Wikipedia ▾</a>
+        <ul id="wikiSubmenu" class="submenu" style="display:block;">
+          <li><a href="npc.html" onclick="toggleSubmenu('npcSubmenu'); return false;">NPC ▾</a>
+            <ul id="npcSubmenu" class="submenu" style="display:block;">
+              <li><a href="alchemik.html">Alchemik</a></li>
+              <li><a href="baekgo.html">Baek-Go</a></li>
+              <li><a href="biolog.html">Biolog Chaegirab</a></li>
+              <li><a href="dozorca.html">Dozorca</a></li>
+              <li><a href="roznosti.html">Handlarka Różności</a></li>
+              <li><a href="bronie.html">Handlarz Bronią</a></li>
+              <li><a href="zbroje.html">Handlarz Zbrojami</a></li>
+              <li><a href="kapitan.html">Kapitan</a></li>
+              <li><a href="kowal.html">Kowal</a></li>
+              <li><a href="pieszy.html">Niepokaźny pieszy</a></li>
+              <li><a href="rybak.html">Rybak</a></li>
+              <li><a href="soon.html">Soon</a></li>
+              <li><a href="stajenny.html">Stajenny</a></li>
+              <li><a href="starszapani.html">Starsza Pani</a></li>
+              <li><a href="uriel.html">Uriel</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Treść -->
+  <div class="content">
+    <h1>Lista NPC</h1>
+    <ul>
+      <li><a href="alchemik.html">Alchemik</a></li>
+      <li><a href="baekgo.html">Baek-Go</a></li>
+      <li><a href="biolog.html">Biolog Chaegirab</a></li>
+      <li><a href="dozorca.html">Dozorca</a></li>
+      <li><a href="roznosti.html">Handlarka Różności</a></li>
+      <li><a href="bronie.html">Handlarz Bronią</a></li>
+      <li><a href="zbroje.html">Handlarz Zbrojami</a></li>
+      <li><a href="kapitan.html">Kapitan</a></li>
+      <li><a href="kowal.html">Kowal</a></li>
+      <li><a href="pieszy.html">Niepokaźny pieszy</a></li>
+      <li><a href="rybak.html">Rybak</a></li>
+      <li><a href="soon.html">Soon</a></li>
+      <li><a href="stajenny.html">Stajenny</a></li>
+      <li><a href="starszapani.html">Starsza Pani</a></li>
+      <li><a href="uriel.html">Uriel</a></li>
+    </ul>
+  </div>
+
+  <script>
+    function toggleSubmenu(id) {
+      var submenu = document.getElementById(id);
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      let links = document.querySelectorAll(".menu a");
+      let current = window.location.pathname.split("/").pop();
+
+      links.forEach(link => {
+        if (link.getAttribute("href") === current) {
+          link.classList.add("active");
+          let parentSubmenu = link.closest(".submenu");
+          if (parentSubmenu) parentSubmenu.style.display = "block";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
