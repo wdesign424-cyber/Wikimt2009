@@ -3,100 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Moja Wiki</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background: #f8f9fa;
-      display: flex;
-    }
-    /* Sidebar */
-    .sidebar {
-      width: 250px;
-      background: #fff;
-      border-right: 1px solid #ccc;
-      padding: 10px;
-      height: 100vh;
-      overflow-y: auto;
-      position: fixed;
-    }
-    .sidebar img {
-      max-width: 120px;
-      margin: 10px auto;
-      display: block;
-    }
-    .sidebar h2 {
-      font-size: 16px;
-      margin: 15px 0 5px;
-      padding-bottom: 5px;
-      border-bottom: 1px solid #ccc;
-    }
-    .menu {
-      list-style: none;
-      padding: 0;
-    }
-    .menu li {
-      margin: 5px 0;
-    }
-    .menu a {
-      text-decoration: none;
-      color: #0645ad;
-      cursor: pointer;
-    }
-    .submenu {
-      list-style: none;
-      padding-left: 15px;
-      display: none;
-    }
-    .submenu li {
-      margin: 3px 0;
-    }
-    /* Treść */
-    .content {
-      margin-left: 260px;
-      padding: 20px;
-      max-width: 900px;
-    }
-    .content h1 {
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 5px;
-    }
-  </style>
+  <title>Wikimt2009 - Strona główna</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Sidebar -->
   <div class="sidebar">
     <img src="Logo.png" alt="Logo">
     <ul class="menu">
-      <li><a href="#">Strona główna</a></li>
+      <li><a href="index.html">Strona główna</a></li>
       <li><a href="#">Ostatnie zmiany</a></li>
       <li>
-        <a onclick="toggleSubmenu('wikiSubmenu')">Wikipedia ▾</a>
+        <a href="npc.html" onclick="toggleSubmenu('wikiSubmenu'); return false;">Wikipedia ▾</a>
         <ul id="wikiSubmenu" class="submenu">
-          <li><a href="#">NPC</a>
-            <ul class="submenu">
-              <li><a href="#">Alchemik</a></li>
-              <li><a href="#">Baek-Go</a></li>
-              <li><a href="#">Biolog Chaegirab</a></li>
-              <li><a href="#">Dozorca</a></li>
-              <li><a href="#">Handlarka Różności</a></li>
-              <li><a href="#">Handlarz Bronią</a></li>
-              <li><a href="#">Handlarz Zbrojami</a></li>
-              <li><a href="#">Kapitan</a></li>
-              <li><a href="#">Kowal</a></li>
-              <li><a href="#">Niepokaźny pieszy</a></li>
-              <li><a href="#">Rybak</a></li>
-              <li><a href="#">Soon</a></li>
-              <li><a href="#">Stajenny</a></li>
-              <li><a href="#">Starsza Pani</a></li>
-              <li><a href="#">Uriel</a></li>
+          <li><a href="npc.html" onclick="toggleSubmenu('npcSubmenu'); return false;">NPC ▾</a>
+            <ul id="npcSubmenu" class="submenu">
+              <li><a href="alchemik.html">Alchemik</a></li>
+              <li><a href="baekgo.html">Baek-Go</a></li>
+              <li><a href="biolog.html">Biolog Chaegirab</a></li>
+              <li><a href="dozorca.html">Dozorca</a></li>
+              <li><a href="roznosti.html">Handlarka Różności</a></li>
+              <li><a href="bronie.html">Handlarz Bronią</a></li>
+              <li><a href="zbroje.html">Handlarz Zbrojami</a></li>
+              <li><a href="kapitan.html">Kapitan</a></li>
+              <li><a href="kowal.html">Kowal</a></li>
+              <li><a href="pieszy.html">Niepokaźny pieszy</a></li>
+              <li><a href="rybak.html">Rybak</a></li>
+              <li><a href="soon.html">Soon</a></li>
+              <li><a href="stajenny.html">Stajenny</a></li>
+              <li><a href="starszapani.html">Starsza Pani</a></li>
+              <li><a href="uriel.html">Uriel</a></li>
             </ul>
           </li>
-          <li><a href="#">Mapy</a></li>
-          <li><a href="#">Systemy</a></li>
-          <li><a href="#">Ulepszacze</a></li>
-          <li><a href="#">Misje</a></li>
+          <li><a href="mapy.html">Mapy</a></li>
+          <li><a href="systemy.html">Systemy</a></li>
+          <li><a href="ulepszacze.html">Ulepszacze</a></li>
+          <li><a href="misje.html">Misje</a></li>
         </ul>
       </li>
     </ul>
@@ -104,15 +46,29 @@
 
   <!-- Treść -->
   <div class="content">
-    <h1>Witaj w mojej Wikipedii!</h1>
-    <p>Tu możesz edytować treść swojej strony. Kliknij w linki po lewej, aby rozwinąć kategorie.</p>
+    <h1>Witaj w Wikimt2009!</h1>
+    <p>To jest strona główna Twojej wiki. Po lewej stronie wybierz kategorię i przejdź do wybranego NPC lub działu.</p>
   </div>
 
+  <!-- JavaScript -->
   <script>
     function toggleSubmenu(id) {
       var submenu = document.getElementById(id);
       submenu.style.display = submenu.style.display === "block" ? "none" : "block";
     }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      let links = document.querySelectorAll(".menu a");
+      let current = window.location.pathname.split("/").pop();
+
+      links.forEach(link => {
+        if (link.getAttribute("href") === current) {
+          link.classList.add("active");
+          let parentSubmenu = link.closest(".submenu");
+          if (parentSubmenu) parentSubmenu.style.display = "block";
+        }
+      });
+    });
   </script>
 </body>
 </html>
