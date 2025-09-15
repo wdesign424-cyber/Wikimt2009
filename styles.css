@@ -6,16 +6,32 @@ body {
   min-height: 100vh;
 }
 
-/* Pasek na górze */
 .topbar {
   width: 100vw;
   background: #800000;
   display: flex;
   align-items: center;
   padding: 0 0 0 32px;
-  height: 130px; /* jeszcze wyższy pasek dla dużego logo */
+  height: 130px;
   box-sizing: border-box;
   box-shadow: 0 2px 8px rgba(30,0,0,0.15);
+  position: relative;
+  z-index: 100;
+}
+
+/* Hamburger button */
+.sidebar-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2.3em;
+  margin-right: 32px;
+  cursor: pointer;
+  outline: none;
+  transition: color 0.2s;
+}
+.sidebar-btn:hover {
+  color: #ffd700;
 }
 
 /* Logo */
@@ -25,9 +41,60 @@ body {
   height: 100%;
 }
 .logo-img {
-  height: 110px; /* większe logo! */
+  height: 110px;
   width: auto;
   filter: drop-shadow(0 2px 4px #420000);
+}
+
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  left: -260px;
+  top: 0;
+  width: 260px;
+  height: 100vh;
+  background: #800000;
+  box-shadow: 2px 0 12px #40000088;
+  transition: left 0.3s;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  padding-top: 140px;
+}
+.sidebar.active {
+  left: 0;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0 0 0 32px;
+  margin: 0;
+}
+.sidebar ul li {
+  margin: 28px 0;
+}
+.sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.3em;
+  font-weight: 400;
+  transition: color 0.2s;
+  letter-spacing: 0.5px;
+}
+.sidebar ul li a:hover {
+  color: #ffd700;
+}
+
+/* Overlay when sidebar is open */
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(20, 0, 0, 0.25);
+  z-index: 150;
+  display: none;
+}
+.overlay.active {
+  display: block;
 }
 
 /* Główna treść */
@@ -36,11 +103,19 @@ main {
   padding: 48px 32px;
   max-width: 900px;
 }
-
-/* Nagłówek na stronie */
 h1 {
   font-size: 2.8em;
   color: #eee;
   margin-top: 24px;
   text-shadow: 0 2px 12px #80000088;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .topbar { height: 90px; padding-left: 12px; }
+  .logo-img { height: 68px; }
+  .sidebar { width: 180px; padding-top: 100px; }
+  main { padding: 24px 8px; }
+  h1 { font-size: 2em; }
+  .sidebar-btn { font-size: 2em; margin-right: 16px; }
 }
