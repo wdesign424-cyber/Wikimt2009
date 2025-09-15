@@ -7,23 +7,41 @@
 </head>
 <body>
   <header class="topbar">
+    <button id="sidebarToggle" class="sidebar-btn" title="Menu">&#9776;</button>
     <a href="index.html" class="logo-link">
       <img src="Logo.png" alt="Logo Mt2009 Wiki" class="logo-img">
     </a>
   </header>
+
+  <nav id="sidebar" class="sidebar">
+    <ul>
+      <li><a href="index.html">Strona główna</a></li>
+      <li><a href="recent.html">Ostatnie zmiany</a></li>
+      <li><a href="wikipedia.html">Wikipedia</a></li>
+    </ul>
+  </nav>
+
+  <div id="overlay" class="overlay"></div>
+
   <main>
     <h1>Ostatnie zmiany</h1>
-    ☀️ Wakacyjny Event 
-🍦 Drop Gałek Lodów
-Podczas trwania eventu, wszystkie potwory powyżej 30 poziomu, których poziom nie przekracza 10 poziomów różnicy względem Twojej postaci, będą mogły upuścić Gałki Lodów – specjalny eventowy przedmiot, wykorzystywany do tworzenia i ulepszania wyjątkowych nagród. 
-🏖️ NPC „Summer”
-W pierwszych miastach każdego królestwa pojawi się specjalny NPC – Summer, u którego będziecie mogli:
-Wytworzyć Wakacyjny Pierścień+0, który można ulepszyć u kowala aż do +9  → Bez ryzyka zniszczenia lub spadku poziomu!  → Bonusy pierścienia:  • Silny przeciwko potworom  • Odporność na potwory  • Bonus do zdobywanego EXP  → Czas działania: 7 dni od momentu stworzenia  → Możliwość przedłużenia działania nawet do 60 dni 
-📌 Koszty i szanse ulepszeń znajdziecie na załączonej grafice.
-Dodatkowo u NPC Summer będziecie mogli:
-Wytworzyć Kryształowy Pucharek – przedmiot, który wydłuża czas działania pierścienia o 1 dzień (z szansą niepowodzenia),
-Stworzyć Księgę Lidera (limit: 1 sztuka na konto),
-Zdobyć Rożek – eventowy odpowiednik Szkatułki Blasku Księżyca
+    <!-- Treść strony tutaj -->
   </main>
+
+  <script>
+    // Sidebar toggle logic
+    const sidebar = document.getElementById('sidebar');
+    const sidebarBtn = document.getElementById('sidebarToggle');
+    const overlay = document.getElementById('overlay');
+
+    sidebarBtn.onclick = function() {
+      sidebar.classList.toggle('active');
+      overlay.classList.toggle('active');
+    };
+    overlay.onclick = function() {
+      sidebar.classList.remove('active');
+      overlay.classList.remove('active');
+    };
+  </script>
 </body>
 </html>
