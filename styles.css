@@ -67,3 +67,8 @@ body {
   border-bottom: 1px solid #ccc;
   padding-bottom: 5px;
 }
+/* Aktywny link w sidebarze */
+.menu a.active {
+  font-weight: bold;
+  color: #ffd700; /* złoty dla wyróżnienia */
+}
